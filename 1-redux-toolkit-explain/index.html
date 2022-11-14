@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Redux Flow - Redux Toolkit</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  <link href="../css/style.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Redux Flow";
+    var mkdocs_page_input_path = "1-redux-toolkit-explain.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/lua.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/swift.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Redux Toolkit</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Start Here</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Redux Flow</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#store">Store</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#action">Action</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#action-creator">Action Creator</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#initial-state">Initial State</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#reducer">Reducer</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#redux-flow">Redux Flow</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Redux Toolkit</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Redux Flow</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="redux-toolkit-explain">Redux Toolkit Explain</h1>
+<p>Redux toolkit is a way to manage global state in your application.  Global meaning that all of your components or javascript can access the state and state meaning the dynamic or changing data in your app.</p>
+<h2 id="store">Store</h2>
+<p>A store is the object that contains all of your state data.  It also contains functions to act on that state data.</p>
+<h2 id="action">Action</h2>
+<p>An action is a javascript object.  It has two properties.  Type and payload.  The type is a string that tells us what the store should do with the action.  The payload is any extra data the store will need to do action in the type.</p>
+<pre><code class="language-javascript">{
+    type: &quot;add_message&quot;,
+    payload: &quot;Hi Phil&quot;
+}
+</code></pre>
+<h2 id="action-creator">Action Creator</h2>
+<p>These are functions that return an action.</p>
+<pre><code class="language-javascript">const createMessage = (message) =&gt; {
+    return {
+        type: 'add_message',
+        payload: message
+    }
+}
+</code></pre>
+<h2 id="initial-state">Initial State</h2>
+<p>This is the starting state for your application.  It can store any type of value including objects, arrays, boolean, string, numbers, etc.</p>
+<h2 id="reducer">Reducer</h2>
+<p>A reducer is a function that takes in the current state the store is holding and an action.  It will then return a new copy of that state.</p>
+<pre><code class="language-javascript">const initalState = [];
+const messages = (state = initalState, action) {
+    switch(action.type) {
+        case 'add_message':
+            return [...state, action.payload];
+        default:
+            return state;    
+    }
+}
+</code></pre>
+<h2 id="redux-flow">Redux Flow</h2>
+<p><img alt="Redux Flow" src="../images/ReduxFlow.drawio.png" /></p>
+<p>1. An event is trigger in javascript</p>
+<p>2. The function handling the event creates an action.  It will call the dispatch function on the store.</p>
+<p>3. When dispatch function is called which will send action to the store.  </p>
+<p>4. The store will take current state and the action create a new state with the reducer function.</p>
+<p>5. The state will then call all the functions that are subscribe to the store.  Meaning the store keeps a list of function that are to be called when the state changes</p>
+<p>6. In those subscribe function you can call getState to get the current state of the store and update your user interface.</p>
+<p>7. (Optional) If the function subscribing to the store is no longer needed you can call the unsubscribe function.  This function is returned when you pass a function to be subscribe.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href=".." class="btn btn-neutral" title="Start Here"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
