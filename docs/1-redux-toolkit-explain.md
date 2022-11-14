@@ -2,6 +2,16 @@
 
 Redux toolkit is a way to manage global state in your application.  Global meaning that all of your components or javascript can access the state and state meaning the dynamic or changing data in your app.
 
+## Video
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TWJvNq5L7SE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+## [Demo](https://zqu05i.csb.app/)
+
+## [Code](https://codesandbox.io/s/how-redux-works-zqu05i)
+
+## [Presentation](https://docs.google.com/presentation/d/1GwYesy1NuPEwwuaRNdSCsraIMJR2unI_B7ByvBdsudE/edit?usp=sharing)
 
 ## Store
 
